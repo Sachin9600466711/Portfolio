@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sachin Mani | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --clr-primary: #1e3a8a;
+      --clr-secondary: #0f172a;
+      --clr-accent: #f59e0b;
+      --clr-light: #f8fafc;
+      --font-main: "Poppins", sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--clr-light);
+      color: var(--clr-secondary);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--clr-primary) 0%, #172554 100%);
+      color: var(--clr-light);
+      padding: 4rem 1rem 6rem;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    header p.tagline {
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    nav a {
+      color: var(--clr-light);
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: var(--clr-accent);
+      left: 0;
+      bottom: -4px;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: -4rem auto 4rem;
+      background: white;
+      padding: 2.5rem 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+    }
+
+    section:not(:first-of-type) {
+      margin-top: 4rem;
+    }
+
+    section h2 {
+      font-size: 1.75rem;
+      color: var(--clr-primary);
+      margin-bottom: 1rem;
+      padding-top: 1.25rem;
+      position: relative;
+    }
+
+    section h2::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background: var(--clr-accent);
+      left: 0;
+      bottom: -6px;
+    }
+
+    .summary-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .summary-container img {
+      width: 120px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid var(--clr-accent);
+    }
+
+    .summary p {
+      margin-bottom: 0.75rem;
+      text-align: justify;
+    }
+
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .edu-item h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+
+    .edu-meta {
+      text-align: right;
+      font-size: 0.95rem;
+    }
+
+    .project {
+      margin-bottom: 1.75rem;
+    }
+
+    .project h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      color: var(--clr-secondary);
+    }
+
+    .project ul {
+      padding-left: 1.2rem;
+      list-style: disc;
+    }
+
+    .project ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    }
+
+    .skill-box {
+      background: var(--clr-light);
+      border: 1px solid #e2e8f0;
+      padding: 1rem 1.25rem;
+      border-radius: 0.75rem;
+    }
+
+    .skill-box h4 {
+      margin-bottom: 0.5rem;
+      color: var(--clr-primary);
+    }
+
+    .skill-box ul {
+      list-style: square inside;
+    }
+
+    .cert-list {
+      list-style: disc inside;
+      padding-left: 0;
+    }
+
+    .cert-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      background: var(--clr-secondary);
+      color: var(--clr-light);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-links a {
+      color: var(--clr-light);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .edu-item {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .edu-meta {
+        text-align: left;
+      }
+      .summary-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="home">
+    <h1>Sachin Mani</h1>
+    <p class="tagline">Aspiring Full‑Stack Developer</p>
+    <nav>
+      <a href="#summary">Summary</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="summary" class="summary">
+    <h2>Summary</h2>
+    <div class="summary-container">
+      <img src="./My passport size photograph.jpg" alt="Sachin Mani Photo">
+      <p>
+        Aspiring full‑stack developer with strong teambuilding and communication
+        skills, eager to contribute to innovative projects in a dynamic
+        environment. Proficient in both front‑end and back‑end development with a
+        solid foundation in programming languages and modern web technologies.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== Education ===== -->
+  <section id="education">
+    <h2>Education</h2>
+
+    <div class="edu-item">
+      <div>
+        <h3>B.Tech – Computer Science &amp; Business Systems</h3>
+        <p>Rajalakshmi Engineering College, Chennai</p>
+      </div>
+      <div class="edu-meta">
+        <p>Nov 2022 – Present</p>
+        <p><strong>CGPA:</strong> 8.21</p>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <h3>Higher Secondary Certificate</h3>
+        <p>Kongunadu Matric HSS, Namakkal</p>
+      </div>
+      <div class="edu-meta">
+        <p>Jun 2021 – May 2022</p>
+        <p><strong>Percentage:</strong> 95.6</p>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div>
+        <h3>Secondary School Leaving Certificate</h3>
+        <p>Kongunadu Matric HSS, Namakkal</p>
+      </div>
+      <div class="edu-meta">
+        <p>Jun 2019 – May 2020</p>
+        <p><strong>Percentage:</strong> 93.2</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Projects ===== -->
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <article class="project">
+      <a href="https://github.com/Sachin9600466711/Farmlink"><h3>FarmLink – A Farmer’s Application</h3></a>
+      <ul>
+        <li>
+          Developed a React frontend application connecting farmers directly
+          with customers to sell products like dairy, cattle, organic manure,
+          and timber.
+        </li>
+        <li>
+          Showcased teamwork in project execution and strong communication by
+          collaborating with teams and incorporating user feedback.
+        </li>
+      </ul>
+    </article>
+
+    <article class="project">
+      <a href="https://github.com/Sachin9600466711/Aura_Assist"><h3>Aura Assist – AI Mental Health Chatbot</h3></a>
+      <ul>
+        <li>
+          Planned and developed an interactive <strong>AI‑based</strong> application to
+          support users in managing stress, anxiety, and mental health.
+        </li>
+        <li>
+          Applied strong planning, empathy, and communication skills to create
+          user‑centered, wellness‑focused features.
+        </li>
+      </ul>
+    </article>
+
+    <article class="project">
+      <a href="https://github.com/Sachin9600466711/HappyTailz"><h3>Happytailz – E‑commerce Platform for Pets</h3></a>
+      <ul>
+        <li>
+          Built an e‑commerce site for pet products, ensuring smooth navigation
+          using modern web technologies.
+        </li>
+        <li>
+          Implemented an AI model (wolf algorithm) to predict pet price, and
+          showcased teamwork, problem‑solving, and attention to detail
+          throughout development.
+        </li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ===== Skills ===== -->
+  <section id="skills">
+    <h2>Technical Skills</h2>
+
+    <div class="skills-grid">
+      <div class="skill-box">
+        <h4>Languages &amp; Runtime</h4>
+        <ul>
+          <li>Python (Intermediate)</li>
+          <li>Node.js</li>
+          <li>Embedded JavaScript (EJS)</li>
+        </ul>
+      </div>
+
+      <div class="skill-box">
+        <h4>Frameworks &amp; Libraries</h4>
+        <ul>
+          <li>React.js (Beginner)</li>
+          <li>Express.js (Beginner)</li>
+          <li>Django (Beginner)</li>
+        </ul>
+      </div>
+
+      <div class="skill-box">
+        <h4>Databases &amp; Tools</h4>
+        <ul>
+          <li>PostgreSQL (PgAdmin)</li>
+          <li>Git &amp; GitHub</li>
+          <li>Cursor IDE</li>
+          <li>ChatGPT</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Certifications ===== -->
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <ul class="cert-list">
+      <li>Full‑Stack Web Development Bootcamp – Udemy></li>
+      <li>Python Programming Essentials – GUVI Networks</li>
+      <li>The Joy of Computing in Python – NPTEL</li>
+    </ul>
+  </section>
+
+  <!-- ===== Contact / Footer ===== -->
+  <footer id="contact">
+    <div class="contact-links">
+      <a href="tel:+919600466712" title="Call">📞 +91 96004 66712</a>
+      <a href="mailto:sachinofficial1806@gmail.com" title="Email">✉️ sachinofficial1806@gmail.com</a>
+      <a href="https://www.linkedin.com/in/sachin-m-96329328b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" title="LinkedIn">LinkedIn</a>
+      <a href="https://github.com/Sachin9600466711" target="_blank" rel="noopener" title="GitHub">GitHub</a>
+      <a href="https://leetcode.com/u/ESiHDpGfpv/" target="_blank" rel="noopener" title="LeetCode">LeetCode</a>
+    </div>
+    <p>&copy; 2025 Sachin Mani. All rights reserved.</p>
+  </footer>
+</body>
+</html>
